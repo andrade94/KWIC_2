@@ -7,8 +7,7 @@ import java.util.stream.IntStream;
 import java.util.Scanner;
 
 /**
- * Takes a list of sentences from the {@link InputReader} and turns it into a list of list of sentences containing the
- * circular shifts of each sentence. Then, it starts the {@link Alphabetizer} module passing it the result.
+ * Takes a list of sentences from the {@link InputReader} or {@link ResultPrinter} and iterates through all of them to see which will be deleted.
  */
 public class EditLines {
 

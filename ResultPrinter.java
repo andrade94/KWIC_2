@@ -12,7 +12,7 @@ public class ResultPrinter {
     }
 
     public void start() {
-        // Prints each shift of each sentence in lower case form.
+        // Prints each shift of each sentence in lower case form and calls the method to EditLines.
         List<String> sentences = new ArrayList<>();
         List<String> sentences2 = new ArrayList<>();
 
