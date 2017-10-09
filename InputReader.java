@@ -21,6 +21,7 @@ public class InputReader {
             System.out.print("Escribe 1 para ordenarlo alfabeticamente o 2 para ordenarlo inversamente. => ");
             n = input.nextLine();
         }
+        sentences = new EditLines(sentences).start();
         if (!sentences.isEmpty()) {
             new CircularShifter(sentences, n).start();
         } else {
