@@ -27,6 +27,7 @@ public class EditLines {
         while (!deleteLine.equalsIgnoreCase("q") && !sentences.isEmpty()) {
             counter = 0;
             ListSize = sentences.size();
+            System.out.println(ListSize);
             System.out.print("Escriba el numero de linea que quiere borrar: (o 'q' para salir) => \n");
             for (int i = 0; i < ListSize; i++) {
                 System.out.println("Line #" + i + ": " + sentences.get(i));

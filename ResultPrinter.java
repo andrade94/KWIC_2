@@ -19,6 +19,10 @@ public class ResultPrinter {
         sentencesList.stream().flatMap(List::stream).map(String::toLowerCase).forEach((e) -> sentences.add(e));
         sentences2 = sentences;
         sentences2 = new EditLines(sentences2).start();
-        sentences2.forEach(System.out::println);
+        if (!sentences2.isEmpty()) {
+            sentences2.forEach(System.out::println);
+        } else {
+            System.out.println("No input given since all of them were deleted.");
+        }
     }
 }
