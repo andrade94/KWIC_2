@@ -8,22 +8,35 @@ import java.util.List;
 public class Alphabetizer {
 
     private final List<List<String>> sentencesList;
+    private final String order;
 
-    public Alphabetizer(List<List<String>> sentencesList) {
+    public Alphabetizer(List<List<String>> sentencesList, String order) {
         this.sentencesList = sentencesList;
+        this.order = order;
     }
 
     public void start() {
         // Sort each of the list of sentences contained in the sentencesList alphabetically.
-        sentencesList.forEach(s -> s.sort(new SentenceComparator()));
+        if (order.equals("1")){
+            sentencesList.forEach(s -> s.sort(new AlphabeticSentenceComparator()));
+        } else {
+            sentencesList.forEach(s -> s.sort(new InverseSentenceComparator()));
+        }
 
         new ResultPrinter(sentencesList).start();
     }
 
-    private static class SentenceComparator implements Comparator<String> {
+    private static class AlphabeticSentenceComparator implements Comparator<String> {
         @Override
         public int compare(String sentence1, String sentence2) {
             return sentence1.compareToIgnoreCase(sentence2);
+        }
+    }
+
+    private static class InverseSentenceComparator implements Comparator<String> {
+        @Override
+        public int compare(String sentence1, String sentence2) {
+            return sentence2.compareToIgnoreCase(sentence1);
         }
     }
 }

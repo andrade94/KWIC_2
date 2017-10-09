@@ -15,9 +15,14 @@ public class InputReader {
     public void start() {
         List<String> stopWords = readStopWords();
         List<String> sentences = readInput(stopWords);
-
+        String n = "";
+        Scanner input = new Scanner(System.in);
+        while (!n.equals("1") && !n.equals("2")){
+            System.out.print("Escribe 1 para ordenarlo alfabeticamente o 2 para ordenarlo inversamente. => ");
+            n = input.nextLine();
+        }
         if (!sentences.isEmpty()) {
-            new CircularShifter(sentences).start();
+            new CircularShifter(sentences, n).start();
         } else {
             System.out.println("No input given");
         }

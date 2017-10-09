@@ -12,9 +12,11 @@ import java.util.stream.IntStream;
 public class CircularShifter {
 
     private final List<String> sentences;
+    private final String order;
 
-    public CircularShifter(List<String> sentences) {
+    public CircularShifter(List<String> sentences, String order) {
         this.sentences = sentences;
+        this.order = order;
     }
 
     public void start() {
@@ -24,7 +26,7 @@ public class CircularShifter {
                 .map(s -> flattenPermutations(permutationForSentence(Arrays.asList(s.split(" ")))))
                 .collect(Collectors.toList());
 
-        new Alphabetizer(sentencesList).start();
+        new Alphabetizer(sentencesList, order).start();
     }
 
     /**
